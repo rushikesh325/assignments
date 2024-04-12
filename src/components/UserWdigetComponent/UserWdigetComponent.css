@@ -8,7 +8,7 @@
   color: black;
 }
 .textColorGrey {
-  color: #cac4c4;
+  color: #918e8e;
 }
 
 ul {
@@ -18,12 +18,12 @@ ul {
 }
 
 li {
-  height: 2rem;
+  height: 2.5rem;
 }
 
 .sideNavBarContainer {
   box-sizing: border-box;
-  width: 20vw;
+  width: 15vw;
   height: 100vh;
 }
 
@@ -35,13 +35,22 @@ li {
 .sideNavBarText {
   display: flex;
   height: 2.5rem;
+  padding: 0 2rem;
   align-items: center;
+}
+
+.sideNavBarText.active {
+  background-color: #efcfed;
+  color: #790edc;
+  border-radius: 0 0.4rem 3rem 0;
+  border-left: 4px solid #790edc;
 }
 
 .headerContainer {
   display: flex;
   box-sizing: border-box;
-  width: 80vw;
+  padding: 0 0.6rem;
+  width: 85vw;
   height: 10vh;
   justify-content: space-between;
   align-items: center;
@@ -66,17 +75,17 @@ li {
 }
 
 .userProfilePhoto img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
   box-sizing: border-box;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .userContainer {
   box-sizing: border-box;
-  background: #f3f2f2;
-  width: 80vw;
+  background: #fbf9f9;
+  width: 85vw;
   height: 90vh;
 }
 
@@ -99,7 +108,6 @@ li {
 }
 
 .userHeaderContainerFilterBtn {
-  border-radius: 0.3rem;
   font-size: 0.9rem;
   width: 2rem;
   height: 2rem;
@@ -112,12 +120,12 @@ li {
 }
 
 .activeBtn {
-  background-color: blueviolet !important;
+  background-color: #790edc !important;
   color: white !important;
 }
 
 .userHeaderContainerBtn {
-  background-color: blueviolet;
+  background-color: #790edc;
   margin: 0 0.5rem;
   font-size: 0.9rem;
   width: 6rem;
@@ -156,9 +164,9 @@ li {
 .userBodyHeaderFilterBtn {
   width: 6rem;
   height: 2rem;
-  background: #f3f2f2;
-  border: 1px solid #cac4c4;
-  color: blueviolet;
+  background: #fbf9f9;
+  border: 1px solid #e9e2e2;
+  color: #790edc;
   border-radius: 5%;
   display: flex;
   align-items: center;
@@ -169,19 +177,19 @@ li {
 .searchBar {
   width: 13rem;
   height: 2rem;
-  border: 1px solid #cac4c4;
+  border: 1px solid #e9e2e2;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f3f2f2;
-  color: blueviolet;
+  background: #fbf9f9;
+  color: #790edc;
   border-radius: 2%;
   margin: 0 7px;
 }
 
 .searchBar input[type="text" i] {
   border: none;
-  background: #f3f2f2;
+  background: #fbf9f9;
 }
 
 .userBodySection {
@@ -196,8 +204,8 @@ li {
   width: 17.9rem;
   display: flex;
   align-items: stretch;
-  border: 1px solid #cac4c4;
-  background-color: #f3f2f2;
+  border: 1px solid #e9e2e2;
+  background-color: #fbf9f9;
   margin: 5px;
   justify-content: space-around;
   padding: 0.5rem 0;
@@ -225,7 +233,17 @@ li {
 }
 .profile-info .email {
 }
-.profile-info .status {
+/* .profile-info  */
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.activeStatusColor {
+  width: 6px;
+  height: 6px;
+  background: #60b560;
+  border-radius: 50%;
 }
 
 .userBodyFooter {
@@ -235,7 +253,7 @@ li {
   height: 9vh;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1111px) {
   .userProfile,
   .sideNavBarContainer {
     display: none;
@@ -244,7 +262,17 @@ li {
     display: block;
   }
   .userBodySection {
-    overflow-y: scroll;
+    overflow-y: hidden;
     justify-content: center;
+  }
+  .searchBar,
+  .userBodyHeaderFilterBtn {
+    width: 3rem;
+  }
+  .searchBar input {
+    display: none;
+  }
+  .textColorBlack {
+    font-size: 0 !important;
   }
 }

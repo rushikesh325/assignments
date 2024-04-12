@@ -19,6 +19,7 @@ import TablePagination from "@mui/material/TablePagination";
 const UserWdigetComponent = () => {
   const [page, setPage] = React.useState(2);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [activeListItem, setActiveListItem] = React.useState("users");
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -40,28 +41,42 @@ const UserWdigetComponent = () => {
         <div className="LogoImage">
           <img src={Logo} alt="ultikart-logo" />
         </div>
-        <div style={{ padding: "0 0 0 2rem" }}>
+        <div>
           <div
             className="sideNavBarText  textColorGrey"
-            style={{ fontSize: "0.7rem", fontWeight: 400 }}
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 400,
+              marginBottom: "0.5rem",
+            }}
           >
             MAIN MENU
           </div>
           <ul>
-            <li>
-              <div className="sideNavBarText textColorBlack">
-                <div style={{ padding: "0 0.3rem 0 0" }}>
+            <li onClick={() => setActiveListItem("dashboard")}>
+              <div
+                className={`sideNavBarText textColorBlack ${
+                  activeListItem === "dashboard" ? "active" : ""
+                }`}
+                id="dashboard"
+              >
+                <div>
                   <AiFillDashboard />
                 </div>
-                <div>Dashboard</div>
+                <div>&nbsp; Dashboard</div>
               </div>
             </li>
-            <li>
-              <div className="sideNavBarText textColorBlack">
-                <div style={{ padding: "0 0.3rem 0 0" }}>
+            <li onClick={() => setActiveListItem("users")}>
+              <div
+                className={`sideNavBarText textColorBlack ${
+                  activeListItem === "users" ? "active" : ""
+                }`}
+                id="users"
+              >
+                <div>
                   <LiaUserSolid />
                 </div>
-                <div>Users</div>
+                <div>&nbsp; Users</div>
               </div>
             </li>
           </ul>
@@ -97,10 +112,16 @@ const UserWdigetComponent = () => {
             </div>
             <div className="userHeaderContainerFilter">
               <div className="userHeaderContainerFilterInside">
-                <div className="userHeaderContainerFilterBtn ">
+                <div
+                  className="userHeaderContainerFilterBtn "
+                  style={{ borderRadius: "0.3rem 0 0 0.3rem" }}
+                >
                   <TfiMenuAlt />
                 </div>
-                <div className="userHeaderContainerFilterBtn activeBtn">
+                <div
+                  className="userHeaderContainerFilterBtn activeBtn"
+                  style={{ borderRadius: "0 0.3rem 0.3rem 0" }}
+                >
                   <CgMenuGridO />
                 </div>
               </div>
@@ -136,7 +157,7 @@ const UserWdigetComponent = () => {
                 </div>
               </div>
               <div className="userBodySection">
-                {Array.from({ length: 6 }, (_, index) => (
+                {Array.from({ length: 1 }, (_, index) => (
                   <div key={index} className="profileCard">
                     <div className="profilePicture">
                       <img src={UserIcon2} alt="Rowan Torres" />
@@ -144,7 +165,10 @@ const UserWdigetComponent = () => {
                     <div className="profileInfo">
                       <p className="name">Rowan Torres</p>
                       <p className="email">rowan.torres@gmail.com</p>
-                      <p className="status active">Active</p>
+                      <p className="status active">
+                        <div className="activeStatusColor"></div>
+                        &nbsp; Active
+                      </p>
                     </div>
                     <div>
                       <BsThreeDotsVertical />
