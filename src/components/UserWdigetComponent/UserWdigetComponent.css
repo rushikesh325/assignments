@@ -1,0 +1,278 @@
+.UserWdigetComponentContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.textColorBlack {
+  color: black;
+}
+.textColorGrey {
+  color: #918e8e;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0;
+}
+
+li {
+  height: 2.5rem;
+}
+
+.sideNavBarContainer {
+  box-sizing: border-box;
+  width: 15vw;
+  height: 100vh;
+}
+
+.LogoImage {
+  height: 2rem;
+  margin: 1rem 0 1rem -2rem;
+}
+
+.sideNavBarText {
+  display: flex;
+  height: 2.5rem;
+  padding: 0 2rem;
+  align-items: center;
+}
+
+.sideNavBarText.active {
+  background-color: #efcfed;
+  color: #790edc;
+  border-radius: 0 0.4rem 3rem 0;
+  border-left: 4px solid #790edc;
+}
+
+.headerContainer {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 0.6rem;
+  width: 85vw;
+  height: 10vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LogoImageHeaderContainer {
+  display: none;
+}
+
+.userProfile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userProfileName {
+  font-size: 0.9rem;
+  margin: 0 0.5rem;
+}
+.userProfileRole {
+  font-size: 0.7rem;
+}
+
+.userProfilePhoto img {
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.userContainer {
+  box-sizing: border-box;
+  background: #fbf9f9;
+  width: 85vw;
+  height: 90vh;
+}
+
+.userHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  align-items: center;
+}
+
+.userHeaderContainerFilter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userHeaderContainerFilterInside {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userHeaderContainerFilterBtn {
+  font-size: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.activeBtn {
+  background-color: #790edc !important;
+  color: white !important;
+}
+
+.userHeaderContainerBtn {
+  background-color: #790edc;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.3rem;
+  color: white;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.userBody {
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  border-radius: 1%;
+  position: relative;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.userBodyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9vh;
+}
+
+.userBodyHeaderFilter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userBodyHeaderFilterBtn {
+  width: 6rem;
+  height: 2rem;
+  background: #fbf9f9;
+  border: 1px solid #e9e2e2;
+  color: #790edc;
+  border-radius: 5%;
+  display: flex;
+  align-items: center;
+  margin: 0 7px;
+  justify-content: center;
+}
+
+.searchBar {
+  width: 13rem;
+  height: 2rem;
+  border: 1px solid #e9e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fbf9f9;
+  color: #790edc;
+  border-radius: 2%;
+  margin: 0 7px;
+}
+
+.searchBar input[type="text" i] {
+  border: none;
+  background: #fbf9f9;
+}
+
+.userBodySection {
+  height: 59vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.profileCard {
+  width: 17.9rem;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #e9e2e2;
+  background-color: #fbf9f9;
+  margin: 5px;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+.profileCard img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.profileCard .profilePicture {
+  display: flex;
+  align-items: center;
+}
+
+.profileInfo {
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.profile-info .name {
+}
+.profile-info .email {
+}
+/* .profile-info  */
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.activeStatusColor {
+  width: 6px;
+  height: 6px;
+  background: #60b560;
+  border-radius: 50%;
+}
+
+.userBodyFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 9vh;
+}
+
+@media only screen and (max-width: 1111px) {
+  .userProfile,
+  .sideNavBarContainer {
+    display: none;
+  }
+  .LogoImageHeaderContainer {
+    display: block;
+  }
+  .userBodySection {
+    overflow-y: hidden;
+    justify-content: center;
+  }
+  .searchBar,
+  .userBodyHeaderFilterBtn {
+    width: 3rem;
+  }
+  .searchBar input {
+    display: none;
+  }
+  .textColorBlack {
+    font-size: 0 !important;
+  }
+}
