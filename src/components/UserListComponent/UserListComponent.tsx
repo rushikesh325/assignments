@@ -7,6 +7,78 @@ import { FaSearch } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import UserIcon2 from "../../assets/user-female.jpg";
 import TablePagination from "@mui/material/TablePagination";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+
+const columns: GridColDef[] = [
+  {
+    field: "id",
+    renderHeader: () => <strong>{"ID "}</strong>,
+    width: 70,
+  },
+  {
+    field: "Name",
+    renderHeader: () => <strong>{"Name "}</strong>,
+    width: 130,
+  },
+  {
+    field: "Email",
+    renderHeader: () => <strong>{"Email "}</strong>,
+    width: 200,
+  },
+  {
+    field: "Phone",
+    renderHeader: () => <strong>{"Phone "}</strong>,
+    type: "number",
+    width: 150,
+  },
+  {
+    field: "LastLogin",
+    renderHeader: () => <strong>{"Last Login "}</strong>,
+    sortable: false,
+    width: 100,
+  },
+  {
+    field: "Role",
+    renderHeader: () => <strong>{"Role "}</strong>,
+    sortable: false,
+    width: 160,
+  },
+  {
+    field: "Status",
+    renderHeader: () => <strong>{"Status "}</strong>,
+    type: "string",
+    width: 90,
+  },
+  {
+    field: "Action",
+    renderHeader: () => <strong>{"Action "}</strong>,
+    type: "number",
+    width: 90,
+  },
+];
+
+const rows = [
+  {
+    id: 1,
+    Name: "Rowan Torres",
+    Email: "rowan.torres@gmail.com",
+    Phone: 99999999999,
+    LastLogin: 6,
+    Role: "User",
+    Status: "Active",
+    Action: null,
+  },
+  {
+    id: 2,
+    Name: "Alonzo Perez",
+    Email: "alonzo.perez@gmail.com",
+    Phone: 99999999999,
+    LastLogin: 2,
+    Role: "User",
+    Status: "Active",
+    Action: null,
+  },
+];
 
 const UserListComponent = () => {
   const [selectedView, setSelectedView] = useState("UserCardView");
@@ -98,7 +170,22 @@ const UserListComponent = () => {
               ))}
             </div>
           ) : (
-            <div className="userBodySection"> Tablelistview</div>
+            <div className="userBodySection">
+              {" "}
+              <div style={{ height: 400, width: "100%" }}>
+                <DataGrid
+                  rows={rows}
+                  columns={columns}
+                  initialState={{
+                    pagination: {
+                      paginationModel: { page: 0, pageSize: 5 },
+                    },
+                  }}
+                  pageSizeOptions={[5, 10]}
+                  checkboxSelection
+                />
+              </div>
+            </div>
           )}
 
           <TablePagination
