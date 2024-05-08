@@ -12,7 +12,7 @@ import { FormControl, Select, MenuItem } from "@mui/material";
 
 const UserListComponent = () => {
   const [selectedView, setSelectedView] = useState("UserCardView");
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(0);
   const [rows, setRows] = useState([
     {
       id: 1,
@@ -76,25 +76,6 @@ const UserListComponent = () => {
     },
   ]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-
-  const renderCard = (rowData: any) => (
-    <div className="profileCard" key={rowData.id}>
-      <div className="profilePicture">
-        <img src={UserIcon2} alt={rowData.Name} />
-      </div>
-      <div className="profileInfo">
-        <p className="name">{rowData.Name}</p>
-        <p className="email">{rowData.Email}</p>
-        <p className="status active">
-          <div className="activeStatusColor"></div>
-          &nbsp; {rowData.Status}
-        </p>
-      </div>
-      <div>
-        <BsThreeDotsVertical />
-      </div>
-    </div>
-  );
 
   const startIndex = page * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
@@ -204,14 +185,18 @@ const UserListComponent = () => {
         <div className="userHeaderContainerFilter">
           <div className="userHeaderContainerFilterInside">
             <div
-              className="userHeaderContainerFilterBtn "
+              className={`userHeaderContainerFilterBtn ${
+                selectedView == "UserTableView" ? "activeBtn" : ""
+              }`}
               style={{ borderRadius: "0.3rem 0 0 0.3rem" }}
               onClick={() => setSelectedView("UserTableView")}
             >
               <TfiMenuAlt />
             </div>
             <div
-              className="userHeaderContainerFilterBtn activeBtn"
+              className={`userHeaderContainerFilterBtn ${
+                selectedView == "UserCardView" ? "activeBtn" : ""
+              }`}
               style={{ borderRadius: "0 0.3rem 0.3rem 0" }}
               onClick={() => setSelectedView("UserCardView")}
             >
@@ -247,25 +232,24 @@ const UserListComponent = () => {
           {selectedView === "UserCardView" ? (
             <>
               <div className="userBodySection">
-                {/* {Array.from({ length: 10 }, (_, index) => (
-                  <div key={index} className="profileCard">
+                {paginatedRows.map((rowData) => (
+                  <div className="profileCard" key={rowData.id}>
                     <div className="profilePicture">
-                      <img src={UserIcon2} alt="Rowan Torres" />
+                      <img src={UserIcon2} alt={rowData.Name} />
                     </div>
                     <div className="profileInfo">
-                      <p className="name">Rowan Torres</p>
-                      <p className="email">rowan.torres@gmail.com</p>
+                      <p className="name">{rowData.Name}</p>
+                      <p className="email">{rowData.Email}</p>
                       <p className="status active">
                         <div className="activeStatusColor"></div>
-                        &nbsp; Active
+                        &nbsp; {rowData.Status}
                       </p>
                     </div>
                     <div>
                       <BsThreeDotsVertical />
                     </div>
                   </div>
-                ))} */}
-                {paginatedRows.map((row) => renderCard(row))}
+                ))}
               </div>
               <TablePagination
                 component="div"
@@ -279,10 +263,11 @@ const UserListComponent = () => {
             </>
           ) : (
             <div className="userBodySection">
-              <div style={{ height: 500, width: "100%" }}>
+              <div style={{ height: 480, width: "100%" }}>
                 <DataGrid
                   rows={rows}
                   columns={columns}
+                  className="customDataGrid"
                   initialState={{
                     pagination: {
                       paginationModel: { page: 0, pageSize: 5 },
